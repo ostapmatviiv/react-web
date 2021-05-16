@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import "./style.css"
 
 import {Button, Form, Input} from "semantic-ui-react";
 
@@ -10,7 +11,11 @@ export const ItemForm = ({onNewItem}) => {
 
 
     return(
-        <Form>
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
+        <Form className="">
             <Form.Field>
                 <Input placeholder="name" value={name} onChange={e=>setName(e.target.value)}/>
             </Form.Field>
@@ -48,5 +53,9 @@ export const ItemForm = ({onNewItem}) => {
                 }}>Submit</Button>
             </Form.Field>
         </Form>
+        </li>
+                        </main>
+              </div>
+            </div>
     )
 }

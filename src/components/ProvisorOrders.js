@@ -14,7 +14,14 @@ export const ProvisorOrders=()=>{
     if(!logname || !logpass){
         console.log("Redirect");
     }
-
+    const[items, setItems]= useState([]);
+    useEffect(()=>{
+      fetch("/items").then(response =>
+          response.json().then(data=>{
+            setItems(data)
+          })
+      );
+    },[]);
     const log=logname+":"+logpass;
   useEffect(()=>{
     fetch("/provisor/order",{
@@ -29,16 +36,45 @@ export const ProvisorOrders=()=>{
         })
     );
   },[log]);
+  let x=0;
     return(
-        <List>
+        <div className="wrapper row2" >
+                
+  <div className="rounded" >
+    <main className="container clear"> 
+    <div id="portfolio">
+    <ul className="nospace clear" >
             {orders.map(order=>{
+                let id=order.order_item_id;
+                if (x%3===0){
+                    x++;
                 return(
-                    <List.Item key={order.order_id}>
-                        <Card>
-                            <Header>Id: {order.order_id}</Header>
-                            <Header>UserId: {order.order_user_id}</Header>
-                            <Button onClick={async () =>{
-                    const response = await fetch('order/'+order.order_id,{
+                    <li   className="one_third first card" >
+                        <article>
+                        <h2>ID: {order.order_id}<br/>
+                        User ID: {order.order_user_id}</h2>
+                        <p className="">Name: {items[id-1].name} <br/>
+                        Price: {items[id-1].price}$<br/>
+                        Amount: {order.quantity_in_order} pcs.</p>
+                        <Button onClick={async () =>{
+                const response = await fetch('/provisor/order/'+order.order_id,{
+                    method:'GET',
+                    headers:{
+                        "Authorization": 'Basic ' + btoa(log),
+                        "Content-Type":"application/json"
+                    },
+                });
+                 if (response.ok===false){
+                    alert("Bad input data")
+                 }
+                 if (response.ok){
+                     const json = await response.json();
+                     localStorage.setItem('order_item_id',json.order_item_id);
+                     localStorage.setItem('order_id',json.order_id);
+                     localStorage.setItem('order_user_id',json.order_user_id);
+                     localStorage.setItem('quantity_in_order',json.quantity_in_order);
+
+                     const res = await fetch('/items/'+order.order_item_id,{
                         method:'GET',
                         headers:{
                             "Authorization": 'Basic ' + btoa(log),
@@ -49,35 +85,125 @@ export const ProvisorOrders=()=>{
                         alert("Bad input data")
                      }
                      if (response.ok){
-                         const json = await response.json();
-                         localStorage.setItem('provisor_order_item_id',json.order_item_id);
-                         localStorage.setItem('provisor_order_id',json.order_id);
-                         localStorage.setItem('provisor_order_user_id',json.order_user_id);
-                         localStorage.setItem('provisor_quantity_in_order',json.quantity_in_order);
-
-                         const res = await fetch('/items/'+order.order_item_id,{
-                            method:'GET',
-                            headers:{
-                                "Content-Type":"application/json"
-                            },
-                        });
-                         if (response.ok===false){
-                            alert("Bad input data")
-                         }
-                         if (response.ok){
-                             const data = await res.json();
-                             localStorage.setItem('provisor_order_item_name',data.name);
-                             localStorage.setItem('provisor_order_item_price',data.price);
-                             routeChange();
-                         }
+                         const data = await res.json();
+                         localStorage.setItem('order_item_name',data.name);
+                         localStorage.setItem('order_item_price',data.price);
+                         routeChange();
                      }
-                }}>Read more</Button>
-                        </Card>
-                    </List.Item>
-                )
+                 }
+            }}>Read more</Button>
+            </article>
+            </li>            
+            )          
+            }
+            if (x%3===1){
+                x++;
+            return(
+                <li   className="one_third card" >
+                    <article>
+                    <h2>ID: {order.order_id}<br/>
+                    User ID: {order.order_user_id}</h2>
+                    <p className="">Name: {items[id-1].name} <br/>
+                    Price: {items[id-1].price}$<br/>
+                    Amount: {order.quantity_in_order} pcs.</p>
+                    <Button onClick={async () =>{
+            const response = await fetch('/provisor/order/'+order.order_id,{
+                method:'GET',
+                headers:{
+                    "Authorization": 'Basic ' + btoa(log),
+                    "Content-Type":"application/json"
+                },
+            });
+             if (response.ok===false){
+                alert("Bad input data")
+             }
+             if (response.ok){
+                 const json = await response.json();
+                 localStorage.setItem('order_item_id',json.order_item_id);
+                 localStorage.setItem('order_id',json.order_id);
+                 localStorage.setItem('order_user_id',json.order_user_id);
+                 localStorage.setItem('quantity_in_order',json.quantity_in_order);
+
+                 const res = await fetch('/items/'+order.order_item_id,{
+                    method:'GET',
+                    headers:{
+                        "Authorization": 'Basic ' + btoa(log),
+                        "Content-Type":"application/json"
+                    },
+                });
+                 if (response.ok===false){
+                    alert("Bad input data")
+                 }
+                 if (response.ok){
+                     const data = await res.json();
+                     localStorage.setItem('order_item_name',data.name);
+                     localStorage.setItem('order_item_price',data.price);
+                     routeChange();
+                 }
+             }
+        }}>Read more</Button>
+        </article>
+        </li>            
+        )          
+        }
+        if (x%3===2){
+            x++;
+        return(
+            <li   className="one_third card" >
+                <article>
+                <h2>ID: {order.order_id}<br/>
+                User ID: {order.order_user_id}</h2>
+                <p className="">Name: {items[id-1].name} <br/>
+                Price: {items[id-1].price}$<br/>
+                Amount: {order.quantity_in_order} pcs.</p>
+                <Button onClick={async () =>{
+        const response = await fetch('/provisor/order/'+order.order_id,{
+            method:'GET',
+            headers:{
+                "Authorization": 'Basic ' + btoa(log),
+                "Content-Type":"application/json"
+            },
+        });
+         if (response.ok===false){
+            alert("Bad input data")
+         }
+         if (response.ok){
+             const json = await response.json();
+             localStorage.setItem('order_item_id',json.order_item_id);
+             localStorage.setItem('order_id',json.order_id);
+             localStorage.setItem('order_user_id',json.order_user_id);
+             localStorage.setItem('quantity_in_order',json.quantity_in_order);
+
+             const res = await fetch('/items/'+order.order_item_id,{
+                method:'GET',
+                headers:{
+                    "Authorization": 'Basic ' + btoa(log),
+                    "Content-Type":"application/json"
+                },
+            });
+             if (response.ok===false){
+                alert("Bad input data")
+             }
+             if (response.ok){
+                 const data = await res.json();
+                 localStorage.setItem('order_item_name',data.name);
+                 localStorage.setItem('order_item_price',data.price);
+                 routeChange();
+             }
+         }
+    }}>Read more</Button>
+    </article>
+    </li>            
+    )          
+    }
+                
             })}
             
-        </List>
+            </ul>
+            </div>
+        </main>
+    </div>
+    </div>
         
     )
 }

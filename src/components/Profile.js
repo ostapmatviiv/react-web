@@ -27,8 +27,11 @@ export const Profile=()=>{
     console.log(log);
 
     return(
-        <Card>
-            <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+        <div class="wrapper row2">
+  <div class="rounded">
+    <main class="container clear"> 
+    <li   className="card" > 
+            <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' size="medium" circular />
             {localStorage.getItem('useremail')?(
                 <Fragment>
                 <Card.Content>Username: {localStorage.getItem('useremail')}</Card.Content>
@@ -49,6 +52,9 @@ export const Profile=()=>{
                     <Button color="youtube" onClick={routeChangeDelete}>Delete Profile</Button>
                 </Form.Field>
             </Form>
-        </Card>
+            </li>
+            </main>
+  </div>
+</div>
     )
 }

@@ -25,6 +25,10 @@ export const EditProfile=()=>{
         }
         const log=logname+":"+logpass;
         return(
+            <div class="wrapper row2">
+            <div class="rounded">
+              <main class="container clear"> 
+              <li   className="card" > 
             <Form>
                 <Form.Field>
                     <Input placeholder="username" value={username} onChange={e=>setUsername(e.target.value)}/>
@@ -64,6 +68,10 @@ export const EditProfile=()=>{
                 </Button.Group>
                 </Form.Field>
             </Form>
+            </li>
+            </main>
+  </div>
+</div>
         )
     }
     else if(localStorage.getItem('provisorname')){
@@ -75,6 +83,10 @@ export const EditProfile=()=>{
         }
         const log=logname+":"+logpass;
         return(
+            <div class="wrapper row2">
+            <div class="rounded">
+              <main class="container clear"> 
+              <li   className="card" >
             <Form>
                 <Form.Field>
                     <Input placeholder="provisorname" value={provisorname} onChange={e=>setProvisorname(e.target.value)}/>
@@ -114,6 +126,10 @@ export const EditProfile=()=>{
                 </Button.Group>
                 </Form.Field>
             </Form>
+                        </li>
+                        </main>
+              </div>
+            </div>
         )
     }
 }

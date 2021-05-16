@@ -9,6 +9,10 @@ export const Login=()=>{
         window.location.reload();
         
     }
+    const routeChangeRegister = () =>{ 
+        let path = `/register`; 
+        history.push(path);        
+    }
     const [useremail, setUseremail] = useState('')
     const [password, setPassword] = useState('')
     localStorage.removeItem('username');
@@ -16,7 +20,13 @@ export const Login=()=>{
     localStorage.removeItem('provisorpass');
     localStorage.removeItem('provisorname');
     return(
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
         <Form>
+            <Form.Field>Login</Form.Field>
+            <Form.Field>or <Button size="mini" secondary onClick={routeChangeRegister}>Register</Button></Form.Field>
             <Form.Field>
                 <Input type="username" placeholder="username" value={useremail} onChange={e=>setUseremail(e.target.value)}/>
             </Form.Field>
@@ -24,7 +34,7 @@ export const Login=()=>{
                 <Input type="password" placeholder="password" value={password} onChange={e=>setPassword(e.target.value)}/>
             </Form.Field>
             <Form.Field>
-                <Button onClick={async () =>{
+                <Button primary onClick={async () =>{
                     const item={useremail,password};
                     const res = await fetch('/login',{
                         method:'POST',
@@ -58,6 +68,10 @@ export const Login=()=>{
                 }}>Submit</Button>
             </Form.Field>
         </Form>
+        </li>
+                        </main>
+              </div>
+            </div>
     )
 }
 

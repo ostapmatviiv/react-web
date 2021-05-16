@@ -16,14 +16,17 @@ export const Buy=()=>{
     const routeChange = () =>{ 
         let path = `/`; 
         history.push(path);
-        window.location.reload();
     }
     const [quantity_in_order, setQuantity] = useState('')
     const order_item_id=localStorage.getItem('item_id')
     return(
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
         <Form>
             <Form.Field>
-                Please, input Quantity of item
+                Please, input amount
                 <Input placeholder="Quantity" value={quantity_in_order} onChange={e=>setQuantity(e.target.value)}/>
             </Form.Field>
 
@@ -48,5 +51,9 @@ export const Buy=()=>{
                     }>Add to Cart</Button>
             </Form.Field>
         </Form>
+        </li>
+                                    </main>
+                          </div>
+                        </div>
     )
 }

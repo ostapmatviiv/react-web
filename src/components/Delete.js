@@ -23,11 +23,15 @@ export const Delete=()=>{
         }
         const log=logname+":"+logpass;
         return(
+            <div class="wrapper row2">
+            <div class="rounded">
+              <main class="container clear"> 
+              <li   className="card" >
             <Form>
                 <Form.Field>Are you sure?
                 </Form.Field>
                 <Form.Field>
-                    <Button color="vk" onClick={routeBack}>Cancel</Button>
+                    <Button color="twitter" onClick={routeBack}>Cancel</Button>
                     <Button color="youtube" onClick={async () =>{
                         const response = await fetch('/user/'+localStorage.getItem('user_id'),{
                             method:'Delete',
@@ -51,6 +55,10 @@ export const Delete=()=>{
                     }}>Delete</Button>
                 </Form.Field>
             </Form>
+            </li>
+            </main>
+  </div>
+</div>
         )
     }
     else if(localStorage.getItem('provisoremail')){
@@ -61,10 +69,15 @@ export const Delete=()=>{
         }
         const log=logname+":"+logpass;
         return(
+            <div class="wrapper row2">
+            <div class="rounded">
+              <main class="container clear"> 
+              <li   className="card" >
             <Form>
                 <Form.Field>Are you sure?
                 </Form.Field>
                 <Form.Field>
+                <Button color="vk" onClick={routeBack}>Cancel</Button>
                     <Button color="youtube" onClick={async () =>{
                         const response = await fetch('/provisor/'+localStorage.getItem('provisor_id'),{
                             method:'Delete',
@@ -88,6 +101,10 @@ export const Delete=()=>{
                     }}>Delete</Button>
                 </Form.Field>
             </Form>
+                        </li>
+                        </main>
+              </div>
+            </div>
         )
     }
 }

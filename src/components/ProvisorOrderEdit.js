@@ -18,6 +18,10 @@ export const ProvisorOrderEdit=()=>{
     }
     const log=logname+":"+logpass;
     return(
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
         <Form>
             <Form.Field>
                 Quantity
@@ -51,5 +55,9 @@ export const ProvisorOrderEdit=()=>{
             </Button.Group>
             </Form.Field>
         </Form>
+                    </li>
+                    </main>
+          </div>
+        </div>
     )
 }

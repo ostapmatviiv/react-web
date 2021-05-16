@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useHistory} from "react-router-dom";
 import {Form, Button,Icon,Image,Header, Container, Table} from "semantic-ui-react";
-
+import "./style.css"
 import myImage from './Images/mezym.png'
 
 export const Item=()=>{
@@ -23,12 +23,15 @@ export const Item=()=>{
         history.push(path);       
     }
     return(
-        <Container>
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
             <Table>
             
                 <Table.Row>
                     <Table.Cell>
-                        <Image src={myImage} wrapped ui={false} width="300" height="300" />
+                        <Image src={myImage} size="medium"/>
                     </Table.Cell>
                     <Table.Cell>
                         <Header>Name: {localStorage.getItem('item_name')}</Header>
@@ -39,7 +42,7 @@ export const Item=()=>{
                 <Table.Cell><Header>Description: {localStorage.getItem('item_describe')}</Header>
                     </Table.Cell>
                 <Table.Cell>
-                    <Header>Price: {localStorage.getItem('item_price')}</Header>
+                    <Header>Price: {localStorage.getItem('item_price')}$</Header>
                     </Table.Cell>
                 {localStorage.getItem('item_quantity')>0?(
                         <Table.Cell positive>
@@ -84,6 +87,9 @@ export const Item=()=>{
                 </Table.Cell>
                 </Table.Row>
             </Table>
-        </Container>
+                                    </li>
+                                    </main>
+                          </div>
+                        </div>
     )
 }

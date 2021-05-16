@@ -18,6 +18,10 @@ export const OrderEdit=()=>{
     }
     const log=logname+":"+logpass;
     return(
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
         <Form>
             <Form.Field>
                 Quantity
@@ -51,5 +55,9 @@ export const OrderEdit=()=>{
             </Button.Group>
             </Form.Field>
         </Form>
+                    </li>
+                    </main>
+          </div>
+        </div>
     )
 }

@@ -7,7 +7,7 @@ import {Button, Form } from "semantic-ui-react";
 export const ItemDelete=()=>{
     const history = useHistory();
     const routeBack = () =>{ 
-        let path = `/item`+localStorage.getItem('item_id'); 
+        let path = `/item/`+localStorage.getItem('item_id'); 
         history.push(path);
         console.log(path)
     }
@@ -23,8 +23,12 @@ export const ItemDelete=()=>{
     }
     const log=logname+":"+logpass;
     return(
+        <div class="wrapper row2">
+        <div class="rounded">
+          <main class="container clear"> 
+          <li   className="card" >
         <Form>
-            Are yo
+            Are you sure?
             <Form.Field>
             <Button color="vk" onClick={routeBack}>Cancel</Button>
                     <Button color="youtube" onClick={async () =>{
@@ -51,5 +55,9 @@ export const ItemDelete=()=>{
                     }}>Delete</Button>
             </Form.Field>
         </Form>
+                    </li>
+                    </main>
+          </div>
+        </div>
     )
 }
