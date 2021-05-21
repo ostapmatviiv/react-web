@@ -6,12 +6,12 @@ import { Header,Table ,Container,Form,Button} from "semantic-ui-react";
 export const ProvisorOrderView=()=>{
     const history = useHistory();
     const routeChangeEdit = () =>{ 
-        // let path = `/provisoredit/order`;
-        // history.push(path);
+        let path = `/provisoredit/order`; 
+        history.push(path);        
     }
     const routeChangeDelete = () =>{ 
-        // let path = `/provisordelete/order`;
-        // history.push(path);
+        let path = `/provisordelete/order`; 
+        history.push(path);       
     }
     return(
         <Container>

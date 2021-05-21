@@ -7,20 +7,20 @@ import myImage from './Images/mezym.png'
 export const Item=()=>{
     const history = useHistory();
     const routeChangeEdit = () =>{ 
-        // let path = `/edit/item`;
-        // history.push(path);
+        let path = `/edit/item`; 
+        history.push(path);        
     }
     const routeChangeDelete = () =>{ 
-        // let path = `/delete/item`;
-        // history.push(path);
+        let path = `/delete/item`; 
+        history.push(path);       
     }
     const routeDemand = () =>{ 
-        // let path = `/reserve`;
-        // history.push(path);
+        let path = `/reserve`; 
+        history.push(path);       
     }
     const routeBuy = () =>{ 
-        // let path = `/buy`;
-        // history.push(path);
+        let path = `/buy`; 
+        history.push(path);       
     }
     return(
         <div class="wrapper row2">

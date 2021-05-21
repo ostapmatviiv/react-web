@@ -6,12 +6,12 @@ import { Header,Table ,Container,Form,Button} from "semantic-ui-react";
 export const Order=()=>{
     const history = useHistory();
     const routeChangeEdit = () =>{ 
-        // let path = `/edit/order`;
-        // history.push(path);
+        let path = `/edit/order`; 
+        history.push(path);        
     }
     const routeChangeDelete = () =>{ 
-        // let path = `/delete/order`;
-        // history.push(path);
+        let path = `/delete/order`; 
+        history.push(path);       
     }
     return(
         <Container>

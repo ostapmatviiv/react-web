@@ -44,10 +44,10 @@ export const ItemForm = ({onNewItem}) => {
                         },
                         body: JSON.stringify(item)
                     });
-                    // if (response.ok){
-                    //     onNewItem(item);
-                    //     alert("New item added successful")
-                    // }
+                    if (response.ok){
+                        onNewItem(item);
+                        alert("New item added successful")
+                    }
                 }}>Submit</Button>
             </Form.Field>
         </Form>

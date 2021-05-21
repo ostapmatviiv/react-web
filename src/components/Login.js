@@ -4,14 +4,14 @@ import {Button, Form , Input} from "semantic-ui-react";
 export const Login=()=>{
     const history = useHistory();
     const routeChange = () =>{ 
-        // let path = `/`;
-        // history.push(path);
-        // window.location.reload();
+        let path = `/`; 
+        history.push(path);
+        window.location.reload();
         
     }
     const routeChangeRegister = () =>{ 
-        // let path = `/register`;
-        // history.push(path);
+        let path = `/register`; 
+        history.push(path);        
     }
     const [useremail, setUseremail] = useState('')
     const [password, setPassword] = useState('')
@@ -43,26 +43,26 @@ export const Login=()=>{
                         },
                         body: JSON.stringify(item)
                     });
-                     // if (res.ok===false){
-                     //    alert("BAD DATA!!!");
-                     // }
-                     // if (res.status===200){
-                     //
-                     //     let result = await res.json();
-                     //    if(result.message==='Success user'){
-                     //        localStorage.setItem('username',result.username);
-                     //        localStorage.setItem('useremail',useremail);
-                     //        localStorage.setItem('userpass',password);
-                     //        localStorage.setItem('user_id',result.user_id)
-                     //    }
-                     //    else if(result.message==='Success provisor'){
-                     //        localStorage.setItem('provisorname',result.provisorname);
-                     //        localStorage.setItem('provisoremail',useremail);
-                     //        localStorage.setItem('provisorpass',password);
-                     //        localStorage.setItem('provisor_id',result.provisor_id)
-                     //    }
-                     //    routeChange();
-                     // }
+                     if (res.ok===false){
+                        alert("BAD DATA!!!");
+                     }
+                     if (res.status===200){
+                     
+                         let result = await res.json();
+                        if(result.message==='Success user'){
+                            localStorage.setItem('username',result.username);
+                            localStorage.setItem('useremail',useremail);
+                            localStorage.setItem('userpass',password);
+                            localStorage.setItem('user_id',result.user_id)
+                        }
+                        else if(result.message==='Success provisor'){
+                            localStorage.setItem('provisorname',result.provisorname);
+                            localStorage.setItem('provisoremail',useremail);
+                            localStorage.setItem('provisorpass',password);
+                            localStorage.setItem('provisor_id',result.provisor_id)
+                        }
+                        routeChange();
+                     }
 
                 }}>Submit</Button>
             </Form.Field>

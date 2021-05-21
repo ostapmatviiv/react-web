@@ -6,24 +6,24 @@ export const OrderDemand=()=>{
     let logname=localStorage.getItem('useremail');
     let logpass=localStorage.getItem('userpass');
     if(!logname || !logpass){
-        // console.log("Redirect");
+        console.log("Redirect");
     }
     const log=logname+":"+logpass;
-    // useEffect(()=>{
-    //     fetch("/items/"+localStorage.getItem('order_demand_item_id'),{
-    //         method: "GET",
-    //         headers:{
-    //             "Authorization": 'Basic ' + btoa(log),
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then(response =>
-    //         response.json().then(data=>{
-    //             console.log(data);
-    //           localStorage.setItem('order_demand_item_name',data.name);
-    //           localStorage.setItem('order_demand_item_price',data.price);
-    //         })
-    //     );
-    //   },[log]);
+    useEffect(()=>{
+        fetch("/items/"+localStorage.getItem('order_demand_item_id'),{
+            method: "GET",
+            headers:{
+                "Authorization": 'Basic ' + btoa(log),
+                'Content-Type': 'application/json'
+            }
+        }).then(response =>
+            response.json().then(data=>{
+                console.log(data);
+              localStorage.setItem('order_demand_item_name',data.name);
+              localStorage.setItem('order_demand_item_price',data.price);
+            })
+        );
+      },[log]);
     return(
         <Container>
             <Table>

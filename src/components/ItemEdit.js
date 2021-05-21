@@ -46,9 +46,9 @@ export const ItemEdit=()=>{
             </Form.Field>
             <Form.Field>
             <Button.Group>
-                <Button data-testid="submit1" onClick={routeChange}>Cancel</Button>
+                <Button onClick={routeChange}>Cancel</Button>
                 <Button.Or />
-                <Button data-testid="submit2" positive onClick={async () =>{
+                <Button positive onClick={async () =>{
                     const item={name,describe,price,quantity};
                     const response = await fetch('/provisor/items/'+localStorage.getItem('item_id'),{
                         method:'PUT',
@@ -58,14 +58,18 @@ export const ItemEdit=()=>{
                         },
                         body: JSON.stringify(item)
                     });
-                    // if (response.ok){
-                    //     alert("success");
-                    //     setTimeout(routeChange, 300);
-                    //     localStorage.setItem('item_name',name);
-                    //     localStorage.setItem('item_describe',describe);
-                    //     localStorage.setItem('item_price',price);
-                    //     localStorage.setItem('item_quantity',quantity);
-                    // }
+                    if (response.ok===false){
+                        console.log(response)
+                        alert("Bad input data")
+                    }
+                    if (response.ok){
+                        alert("success");
+                        setTimeout(routeChange, 300);
+                        localStorage.setItem('item_name',name);
+                        localStorage.setItem('item_describe',describe);
+                        localStorage.setItem('item_price',price);
+                        localStorage.setItem('item_quantity',quantity);
+                    }
 
                 }}>Save</Button>
             </Button.Group>
