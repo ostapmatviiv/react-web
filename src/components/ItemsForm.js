@@ -29,12 +29,11 @@ export const ItemForm = ({onNewItem}) => {
                 <Input placeholder="description" value={describe} onChange={e=>setDescribe(e.target.value)}/>
             </Form.Field>
             <Form.Field>
-                <Button onClick={async () =>{
+                <Button data-testid="submit" onClick={async () =>{
                     const item={name,price,quantity,describe};
                     let username=localStorage.getItem('provisoremail');
                     let password=localStorage.getItem('provisorpass');
                     if(!username || !password){
-                        console.log("Redirect");
                     }
                     const log=username+":"+password;
                     const response = await fetch('/provisor/add',{
@@ -45,11 +44,10 @@ export const ItemForm = ({onNewItem}) => {
                         },
                         body: JSON.stringify(item)
                     });
-                    if (response.ok){
-                        onNewItem(item);
-                        alert("New item added successful")
-
-                    }
+                    // if (response.ok){
+                    //     onNewItem(item);
+                    //     alert("New item added successful")
+                    // }
                 }}>Submit</Button>
             </Form.Field>
         </Form>

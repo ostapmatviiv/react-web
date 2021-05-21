@@ -7,14 +7,14 @@ import {Button, Form } from "semantic-ui-react";
 export const ItemDelete=()=>{
     const history = useHistory();
     const routeBack = () =>{ 
-        let path = `/item/`+localStorage.getItem('item_id'); 
-        history.push(path);
-        console.log(path)
+        // let path = `/item/`+localStorage.getItem('item_id');
+        // history.push(path);
+        // console.log(path)
     }
     const routeChange = () =>{ 
-        let path = `/`; 
-        history.push(path);
-        console.log(path)
+        // let path = `/`;
+        // history.push(path);
+        // console.log(path)
     }
     let logname=localStorage.getItem('provisoremail');
     let logpass=localStorage.getItem('provisorpass');
@@ -39,18 +39,16 @@ export const ItemDelete=()=>{
                                 "Content-Type":"application/json"
                             },
                         });
-                        if (response.ok===false){
-                            alert("Bad input data")
-                        }
-                        if (response.ok){
-                            alert("success");
-                            setTimeout(routeChange, 1000);
-                            localStorage.removeItem('item_id');
-                            localStorage.removeItem('item_name');
-                            localStorage.removeItem('item_describe');
-                            localStorage.removeItem('item_price');
-                            localStorage.removeItem('item_quantity');
-                        }
+
+                        // if (response.ok){
+                        //     alert("success");
+                        //     setTimeout(routeChange, 1000);
+                        //     localStorage.removeItem('item_id');
+                        //     localStorage.removeItem('item_name');
+                        //     localStorage.removeItem('item_describe');
+                        //     localStorage.removeItem('item_price');
+                        //     localStorage.removeItem('item_quantity');
+                        //}
 
                     }}>Delete</Button>
             </Form.Field>

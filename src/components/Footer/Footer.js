@@ -1,10 +1,9 @@
 import React from 'react'
 import "../style.css"
-import { List } from 'semantic-ui-react'
 import Worldmap from "../Images/worldmap.png" 
 
 const Footer1=()=>(
-  <div class="wrapper row4">
+  <div class="wrapper row4 card">
     <footer id="footer" class="clear">
       <div class="one_third first">
         <figure class="center"><img class="btmspace-15" src={Worldmap} alt="" />

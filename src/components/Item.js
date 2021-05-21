@@ -1,26 +1,26 @@
 import React, { Fragment } from 'react';
 import { useHistory} from "react-router-dom";
-import {Form, Button,Icon,Image,Header, Container, Table} from "semantic-ui-react";
+import {Form, Button,Icon,Image,Header, Table} from "semantic-ui-react";
 import "./style.css"
 import myImage from './Images/mezym.png'
 
 export const Item=()=>{
     const history = useHistory();
     const routeChangeEdit = () =>{ 
-        let path = `/edit/item`; 
-        history.push(path);        
+        // let path = `/edit/item`;
+        // history.push(path);
     }
     const routeChangeDelete = () =>{ 
-        let path = `/delete/item`; 
-        history.push(path);       
+        // let path = `/delete/item`;
+        // history.push(path);
     }
     const routeDemand = () =>{ 
-        let path = `/reserve`; 
-        history.push(path);       
+        // let path = `/reserve`;
+        // history.push(path);
     }
     const routeBuy = () =>{ 
-        let path = `/buy`; 
-        history.push(path);       
+        // let path = `/buy`;
+        // history.push(path);
     }
     return(
         <div class="wrapper row2">
@@ -68,7 +68,7 @@ export const Item=()=>{
                         {localStorage.getItem('item_quantity')>0?(
                         <Form.Field>
                             <Button animated='vertical' onClick={routeBuy}>
-                                <Button.Content hidden>Shop</Button.Content>
+                                <Button.Content hidden>123</Button.Content>
                                 <Button.Content visible>
                                     <Icon name='shop' />
                                 </Button.Content>

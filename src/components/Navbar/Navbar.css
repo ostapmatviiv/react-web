@@ -14,7 +14,7 @@ i {
 .navbar-logo {
   padding: 15px;
   color: #fff;
-  pointer-events: none;
+  pointer-events: fill  ;
 }
 
 .navbar-mainbg {

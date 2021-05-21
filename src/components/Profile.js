@@ -5,12 +5,12 @@ import {Form, Button,Card,Image} from "semantic-ui-react";
 export const Profile=()=>{ 
     const history = useHistory();
     const routeChangeEdit = () =>{ 
-        let path = `/edit`; 
-        history.push(path);        
+        // let path = `/edit`;
+        // history.push(path);
     }
     const routeChangeDelete = () =>{ 
-        let path = `/delete`; 
-        history.push(path);       
+        // let path = `/delete`;
+        // history.push(path);
     }
     let logname="";
     let logpass="";

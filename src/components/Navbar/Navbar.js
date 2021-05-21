@@ -6,42 +6,42 @@ import $ from 'jquery';
 function Navbarnolog (props){
 
   function animation(){
-    var tabsNewAnim = $('#navbarSupportedContent');
-    var activeItemNewAnim = tabsNewAnim.find('.active');
-    var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-    var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-    var itemPosNewAnimTop = activeItemNewAnim.position();
-    var itemPosNewAnimLeft = activeItemNewAnim.position();
-    $(".hori-selector").css({
-      "top":itemPosNewAnimTop.top + "px", 
-      "left":itemPosNewAnimLeft.left + "px",
-      "height": activeWidthNewAnimHeight + "px",
-      "width": activeWidthNewAnimWidth + "px"
-    });
-    $("#navbarSupportedContent").on("click","li",function(e){
-      $('#navbarSupportedContent ul li').removeClass("active");
-      $(this).addClass('active');
-      var activeWidthNewAnimHeight = $(this).innerHeight();
-      var activeWidthNewAnimWidth = $(this).innerWidth();
-      var itemPosNewAnimTop = $(this).position();
-      var itemPosNewAnimLeft = $(this).position();
-      $(".hori-selector").css({
-        "top":itemPosNewAnimTop.top + "px", 
-        "left":itemPosNewAnimLeft.left + "px",
-        "height": activeWidthNewAnimHeight + "px",
-        "width": activeWidthNewAnimWidth + "px"
-      });
-    });
+    // var tabsNewAnim = $('#navbarSupportedContent');
+    // var activeItemNewAnim = tabsNewAnim.find('.active');
+    // var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+    // var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+    // var itemPosNewAnimTop = activeItemNewAnim.position();
+    // var itemPosNewAnimLeft = activeItemNewAnim.position();
+    // $(".hori-selector").css({
+    //   "top":itemPosNewAnimTop.top + "px",
+    //   "left":itemPosNewAnimLeft.left + "px",
+    //   "height": activeWidthNewAnimHeight + "px",
+    //   "width": activeWidthNewAnimWidth + "px"
+    // });
+    // $("#navbarSupportedContent").on("click","li",function(e){
+    //   $('#navbarSupportedContent ul li').removeClass("active");
+    //   $(this).addClass('active');
+    //   var activeWidthNewAnimHeight = $(this).innerHeight();
+    //   var activeWidthNewAnimWidth = $(this).innerWidth();
+    //   var itemPosNewAnimTop = $(this).position();
+    //   var itemPosNewAnimLeft = $(this).position();
+    //   $(".hori-selector").css({
+    //     "top":itemPosNewAnimTop.top + "px",
+    //     "left":itemPosNewAnimLeft.left + "px",
+    //     "height": activeWidthNewAnimHeight + "px",
+    //     "width": activeWidthNewAnimWidth + "px"
+    //   });
+    // });
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    animation();
-    $(window).on('resize', function(){
-      setTimeout(function(){ animation(); }, 200);
-    });
+    // animation();
+    // $(window).on('resize', function(){
+    //   setTimeout(function(){ animation(); }, 200);
+    // });
 
-  }, []);
+  // }, []);
     return (
     <nav className="navbar navbar-expand-lg navbar-mainbg">
 
@@ -52,9 +52,9 @@ function Navbarnolog (props){
 
         <button
           className="navbar-toggler"
-          onClick={ function(){
-            setTimeout(function(){ animation(); });
-          }}
+          // onClick={ function(){
+          //   setTimeout(function(){ animation(); });
+          // }}
           type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i className="fas fa-bars text-white"></i>
         </button>
@@ -107,34 +107,34 @@ function Navbarlog (props){
     var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
     var itemPosNewAnimTop = activeItemNewAnim.position();
     var itemPosNewAnimLeft = activeItemNewAnim.position();
-    $(".hori-selector").css({
-      "top":itemPosNewAnimTop.top + "px",
-      "left":itemPosNewAnimLeft.left + "px",
-      "height": activeWidthNewAnimHeight + "px",
-      "width": activeWidthNewAnimWidth + "px"
-    });
-    $("#navbarSupportedContent").on("click","li",function(e){
-      $('#navbarSupportedContent ul li').removeClass("active");
-      $(this).addClass('active');
-      var activeWidthNewAnimHeight = $(this).innerHeight();
-      var activeWidthNewAnimWidth = $(this).innerWidth();
-      var itemPosNewAnimTop = $(this).position();
-      var itemPosNewAnimLeft = $(this).position();
-      $(".hori-selector").css({
-        "top":itemPosNewAnimTop.top + "px",
-        "left":itemPosNewAnimLeft.left + "px",
-        "height": activeWidthNewAnimHeight + "px",
-        "width": activeWidthNewAnimWidth + "px"
-      });
-    });
+    // $(".hori-selector").css({
+    //   "top":itemPosNewAnimTop.top + "px",
+    //   "left":itemPosNewAnimLeft.left + "px",
+    //   "height": activeWidthNewAnimHeight + "px",
+    //   "width": activeWidthNewAnimWidth + "px"
+    // });
+    // $("#navbarSupportedContent").on("click","li",function(e){
+      // $('#navbarSupportedContent ul li').removeClass("active");
+      // $(this).addClass('active');
+      // var activeWidthNewAnimHeight = $(this).innerHeight();
+      // var activeWidthNewAnimWidth = $(this).innerWidth();
+      // var itemPosNewAnimTop = $(this).position();
+      // var itemPosNewAnimLeft = $(this).position();
+      // $(".hori-selector").css({
+      //   "top":itemPosNewAnimTop.top + "px",
+      //   "left":itemPosNewAnimLeft.left + "px",
+      //   "height": activeWidthNewAnimHeight + "px",
+      //   "width": activeWidthNewAnimWidth + "px"
+      // });
+    // });
   }
 
   useEffect(() => {
 
     animation();
-    $(window).on('resize', function(){
-      setTimeout(function(){ animation(); }, 200);
-    });
+    // $(window).on('resize', function(){
+    //   setTimeout(function(){ animation(); }, 200);
+    // });
 
   }, []);
     return (

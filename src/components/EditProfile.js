@@ -7,8 +7,8 @@ import {Button, Form , Input} from "semantic-ui-react";
 export const EditProfile=()=>{
     const history = useHistory();
     const routeChange = () =>{ 
-        let path = `/profile`; 
-        history.push(path);
+        // let path = `/profile`;
+        // history.push(path);
     }
     const [username, setUsername] = useState(localStorage.getItem('username'))
     const [useremail, setEmail] = useState(localStorage.getItem('useremail'))
@@ -18,26 +18,128 @@ export const EditProfile=()=>{
     const [provisorpass, setProvisorpass] = useState(localStorage.getItem('provisorpass'));
     if(localStorage.getItem('username')){
 
-        let logname=localStorage.getItem('useremail');
-        let logpass=localStorage.getItem('userpass');
-        if(!logname || !logpass){
-            console.log("Redirect");
-        }
-        const log=logname+":"+logpass;
-        return(
+//         let logname=localStorage.getItem('useremail');
+//         let logpass=localStorage.getItem('userpass');
+//         if(!logname || !logpass){
+//             console.log("Redirect");
+//         }
+//         const log=logname+":"+logpass;
+//         return(
+//             <div class="wrapper row2">
+//             <div class="rounded">
+//               <main class="container clear">
+//               <li   className="card" >
+//             <Form>
+//                 <Form.Field>
+//                     <Input placeholder="username" value={username} onChange={e=>setUsername(e.target.value)}/>
+//                 </Form.Field>
+//                 <Form.Field>
+//                     <Input placeholder="email" value={useremail} onChange={e=>setEmail(e.target.value)}/>
+//                 </Form.Field>
+//                 <Form.Field>
+//                     <Input placeholder="password" value={userpass} onChange={e=>setPassword(e.target.value)}/>
+//                 </Form.Field>
+//                 <Form.Field>
+//                 <Button.Group>
+//                     <Button onClick={routeChange}>Cancel</Button>
+//                     <Button.Or />
+//                     <Button positive onClick={async () =>{
+//                         const item={username,useremail,userpass};
+//                         const response = await fetch('/user/'+localStorage.getItem('user_id'),{
+//                             method:'PUT',
+//                             headers:{
+//                                 "Authorization": 'Basic ' + btoa(log),
+//                                 "Content-Type":"application/json"
+//                             },
+//                             body: JSON.stringify(item)
+//                         });
+//                         if (response.ok){
+//                             alert("success");
+//                             setTimeout(routeChange, 300);
+//                             localStorage.setItem('username',username);
+//                             localStorage.setItem('useremail',useremail);
+//                             localStorage.setItem('userpass',userpass);
+//                         }
+//
+//                     }}>Save</Button>
+//                 </Button.Group>
+//                 </Form.Field>
+//             </Form>
+//             </li>
+//             </main>
+//   </div>
+// </div>
+//         )
+    }
+    else if(localStorage.getItem('provisorname')){
+
+        // let logname=localStorage.getItem('provisoremail');
+        // let logpass=localStorage.getItem('provisorpass');
+        // if(!logname || !logpass){
+        //     console.log("Redirect");
+        // }
+        // const log=logname+":"+logpass;
+        // return(
+        //     <div class="wrapper row2">
+        //     <div class="rounded">
+        //       <main class="container clear">
+        //       <li   className="card" >
+        //     <Form>
+        //         <Form.Field>
+        //             <Input placeholder="provisorname" value={provisorname} onChange={e=>setProvisorname(e.target.value)}/>
+        //         </Form.Field>
+        //         <Form.Field>
+        //             <Input placeholder="email" value={provisoremail} onChange={e=>setprovisorEmail(e.target.value)}/>
+        //         </Form.Field>
+        //         <Form.Field>
+        //             <Input placeholder="password" value={provisorpass} onChange={e=>setProvisorpass(e.target.value)}/>
+        //         </Form.Field>
+        //         <Form.Field>
+        //         <Button.Group>
+        //             <Button onClick={routeChange}>Cancel</Button>
+        //             <Button.Or />
+        //             <Button positive onClick={async () =>{
+        //                 const item={provisorname,provisoremail,provisorpass};
+        //                 const response = await fetch('/provisor/'+localStorage.getItem('provisor_id'),{
+        //                     method:'PUT',
+        //                     headers:{
+        //                         "Authorization": 'Basic ' + btoa(log),
+        //                         "Content-Type":"application/json"
+        //                     },
+        //                     body: JSON.stringify(item)
+        //                 });
+        //                 if (response.ok){
+        //                     alert("success");
+        //                     setTimeout(routeChange, 300);
+        //                     localStorage.setItem('provisorname',provisorname);
+        //                     localStorage.setItem('provisoremail',provisoremail);
+        //                     localStorage.setItem('provisorpass',provisorpass);
+        //                 }
+        //
+        //             }}>Save</Button>
+        //         </Button.Group>
+        //         </Form.Field>
+        //     </Form>
+        //                 </li>
+        //                 </main>
+        //       </div>
+        //     </div>
+        // )
+    }
+    return(
             <div class="wrapper row2">
             <div class="rounded">
-              <main class="container clear"> 
-              <li   className="card" > 
+              <main class="container clear">
+              <li   className="card" >
             <Form>
                 <Form.Field>
                     <Input placeholder="username" value={username} onChange={e=>setUsername(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
-                    <Input placeholder="email" value={useremail} onChange={e=>setEmail(e.target.value)}/>
+                    <Input placeholder="useremail" value={useremail} onChange={e=>setEmail(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
-                    <Input placeholder="password" value={userpass} onChange={e=>setPassword(e.target.value)}/>
+                    <Input placeholder="userpass" value={userpass} onChange={e=>setPassword(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
                 <Button.Group>
@@ -48,21 +150,18 @@ export const EditProfile=()=>{
                         const response = await fetch('/user/'+localStorage.getItem('user_id'),{
                             method:'PUT',
                             headers:{
-                                "Authorization": 'Basic ' + btoa(log),
+                                // "Authorization": 'Basic ' + btoa(log),
                                 "Content-Type":"application/json"
                             },
                             body: JSON.stringify(item)
                         });
-                        if (response.ok===false){
-                            alert("Bad input data")
-                        }
-                        if (response.ok){
-                            alert("success");
-                            setTimeout(routeChange, 300);
-                            localStorage.setItem('username',username);
-                            localStorage.setItem('useremail',useremail);
-                            localStorage.setItem('userpass',userpass);
-                        }
+                        // if (response.ok){
+                        //     alert("success");
+                        //     setTimeout(routeChange, 300);
+                        //     localStorage.setItem('username',username);
+                        //     localStorage.setItem('useremail',useremail);
+                        //     localStorage.setItem('userpass',userpass);
+                        // }
 
                     }}>Save</Button>
                 </Button.Group>
@@ -71,65 +170,54 @@ export const EditProfile=()=>{
             </li>
             </main>
   </div>
-</div>
-        )
-    }
-    else if(localStorage.getItem('provisorname')){
 
-        let logname=localStorage.getItem('provisoremail');
-        let logpass=localStorage.getItem('provisorpass');
-        if(!logname || !logpass){
-            console.log("Redirect");
-        }
-        const log=logname+":"+logpass;
-        return(
-            <div class="wrapper row2">
-            <div class="rounded">
-              <main class="container clear"> 
-              <li   className="card" >
-            <Form>
-                <Form.Field>
-                    <Input placeholder="provisorname" value={provisorname} onChange={e=>setProvisorname(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <Input placeholder="email" value={provisoremail} onChange={e=>setprovisorEmail(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <Input placeholder="password" value={provisorpass} onChange={e=>setProvisorpass(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                <Button.Group>
-                    <Button onClick={routeChange}>Cancel</Button>
-                    <Button.Or />
-                    <Button positive onClick={async () =>{
-                        const item={provisorname,provisoremail,provisorpass};
-                        const response = await fetch('/provisor/'+localStorage.getItem('provisor_id'),{
-                            method:'PUT',
-                            headers:{
-                                "Authorization": 'Basic ' + btoa(log),
-                                "Content-Type":"application/json"
-                            },
-                            body: JSON.stringify(item)
-                        });
-                        if (response.ok===false){
-                            alert("Bad input data")
-                        }
-                        if (response.ok){
-                            alert("success");
-                            setTimeout(routeChange, 300);
-                            localStorage.setItem('provisorname',provisorname);
-                            localStorage.setItem('provisoremail',provisoremail);
-                            localStorage.setItem('provisorpass',provisorpass);
-                        }
+    <div className="wrapper row2">
+        <div className="rounded">
+            <main className="container clear">
+                <li className="card">
+                    <Form>
+                        <Form.Field>
+                            <Input placeholder="provisorname" value={provisorname}
+                                   onChange={e => setProvisorname(e.target.value)}/>
+                        </Form.Field>
+                        <Form.Field>
+                            <Input placeholder="provisoremail" value={provisoremail}
+                                   onChange={e => setprovisorEmail(e.target.value)}/>
+                        </Form.Field>
+                        <Form.Field>
+                            <Input placeholder="provisorpass" value={provisorpass}
+                                   onChange={e => setProvisorpass(e.target.value)}/>
+                        </Form.Field>
+                        <Form.Field>
+                            <Button.Group>
+                                <Button onClick={routeChange}>Cancel</Button>
+                                <Button.Or/>
+                                <Button positive onClick={async () => {
+                                    const item = {provisorname, provisoremail, provisorpass};
+                                    const response = await fetch('/provisor/' + localStorage.getItem('provisor_id'), {
+                                        method: 'PUT',
+                                        headers: {
+                                            // "Authorization": 'Basic ' + btoa(log),
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify(item)
+                                    });
+                                    // if (response.ok) {
+                                    //     alert("success");
+                                    //     setTimeout(routeChange, 300);
+                                    //     localStorage.setItem('provisorname', provisorname);
+                                    //     localStorage.setItem('provisoremail', provisoremail);
+                                    //     localStorage.setItem('provisorpass', provisorpass);
+                                    // }
 
-                    }}>Save</Button>
-                </Button.Group>
-                </Form.Field>
-            </Form>
-                        </li>
-                        </main>
-              </div>
+                                }}>Save</Button>
+                            </Button.Group>
+                        </Form.Field>
+                    </Form>
+                </li>
+            </main>
+        </div>
+    </div>
             </div>
         )
-    }
 }
